@@ -11,7 +11,7 @@ class rolling_hash:
     def get_hash(self, text, patternSize):
         hash_value = 0
         for i in range(0, patternSize):
-            hash_value += (ord(self.text[i]) - ord("a")+1)*(self.base**(patternSize - i -1)) % self.mod
+            hash_value = (hash_value + (ord(self.text[i]) - ord("a")+1)*(self.base**(patternSize - i -1))) % self.mod
 
         self.window_start = 0
         self.window_end =  patternSize
@@ -22,6 +22,7 @@ class rolling_hash:
             self.hash -= (ord(self.text[self.window_start]) - 96)*self.base**(self.patternSize-1)
             self.hash *= self.base
             self.hash += ord(self.text[self.window_end])- 96
+            print(  ord(self.text[self.window_end])- 96)
             self.hash %= self.mod
             self.window_start += 1
             self.window_end += 1
@@ -49,4 +50,4 @@ def checker(text, pattern):
 
 
 if __name__ == "__main__": 
-    print(checker("ABDCCEAG", "CC"))
+    print(checker("ABDCCEAG", "bd") , ((28-26) * 26 + 4) % 5807 )

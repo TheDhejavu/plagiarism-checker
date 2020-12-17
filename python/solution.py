@@ -74,8 +74,8 @@ class PlagiarismChecker:
 
 current_dir = dirname(__file__)
 checker = PlagiarismChecker(
-    join(current_dir, "./a.txt"),
-    join(current_dir, "./b.txt")
+    join(current_dir, "./document_a.txt"),
+    join(current_dir, "./document_b.txt")
 )
 print('The percentage of plagiarism held by both documents is  {0}%'.format(
     checker.get_rate()))
