@@ -36,11 +36,12 @@ def checker(text, pattern):
     if len(pattern) > len(pattern):
         return None
 
-    text_rolling = rolling_hash(text, len(pattern))
-    pattern_rolling = rolling_hash(pattern, len(pattern))
+    text_rolling = rolling_hash(text.lower(), len(pattern))
+    pattern_rolling = rolling_hash(pattern.lower(), len(pattern))
 
 
-    for _ in range(len(text) -  len(pattern) - 1):
+    for _ in range(len(text)):
+        print(pattern_rolling.hash, text_rolling.hash)
         if text_rolling.hash == pattern_rolling.hash:
             return "Found"
         text_rolling.next_window()
@@ -48,4 +49,4 @@ def checker(text, pattern):
 
 
 if __name__ == "__main__": 
-    print(checker("abcdefgh", "a"))
+    print(checker("ABDCCEAG", "CC"))
