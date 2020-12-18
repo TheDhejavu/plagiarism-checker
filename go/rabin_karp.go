@@ -38,7 +38,7 @@ func (rb *RabinKarp) GetHash() {
 		runeText := []rune(rb.Text)
 		value := int(runeText[n])
 		mathpower := int(math.Pow(float64(rb.Base), float64(rb.PatternSize-n-1)))
-		hashValue = (hashValue + (value-96)*(mathpower)) % rb.Mod
+		hashValue = (hashValue + (value-96)*(mathpower))
 	}
 	rb.Start = 0
 	rb.End = rb.PatternSize
@@ -54,7 +54,7 @@ func (rb *RabinKarp) NextWindow() bool {
 		rb.Hash -= (int([]rune(rb.Text)[rb.Start]) - 96) * mathpower
 		rb.Hash *= rb.Base
 		rb.Hash += int([]rune(rb.Text)[rb.End] - 96)
-		rb.Hash %= rb.Mod
+		// rb.Hash %= rb.Mod
 		rb.Start++
 		rb.End++
 		return true

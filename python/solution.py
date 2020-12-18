@@ -24,6 +24,7 @@ class PlagiarismChecker:
     def calculate_hash(self, content, doc_type):
         text = self.prepare_content(content)
         text = "".join(text)
+        print(text)
 
         text = rabin_karp.rolling_hash(text, self.k_gram)
         for _ in range(len(content) - self.k_gram + 1):
@@ -59,6 +60,7 @@ class PlagiarismChecker:
         stop_words = set(stopwords.words('english'))
         # TOKENIZE
         word_tokens = word_tokenize(content)
+        
         filtered_content = []
         # STEMMING
         porter = PorterStemmer()
