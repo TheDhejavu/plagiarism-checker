@@ -10,7 +10,6 @@ from os.path import dirname, join
 
 class PlagiarismChecker:
     def __init__(self, file_a, file_b):
-        self.valid = False
         self.file_a = file_a
         self.file_b = file_b
         self.hash_table = {"a": [], "b": []}
@@ -74,8 +73,8 @@ class PlagiarismChecker:
 
 current_dir = dirname(__file__)
 checker = PlagiarismChecker(
-    join(current_dir, "./document_a.txt"),
-    join(current_dir, "./document_b.txt")
+    join(current_dir, "../docs/document_a.txt"),
+    join(current_dir, "../docs/document_b.txt")
 )
 print('The percentage of plagiarism held by both documents is  {0}%'.format(
     checker.get_rate()))
