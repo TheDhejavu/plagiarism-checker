@@ -29,8 +29,7 @@ func Contains(a interface{}, e interface{}) bool {
 	return false
 }
 
-//  Mod computes the "modulus" as opposed to the "remainder"
-// provided by % and math.Mod library
+//  Mod implements python-like modulus operation for negative values.
 func Mod(a, b int) int {
 	return (a%b + b) % b
 }
