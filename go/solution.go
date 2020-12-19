@@ -7,8 +7,8 @@ import (
 	"path"
 	"path/filepath"
 	"reflect"
-
 	"runtime"
+
 	"strings"
 
 	prose "github.com/jdkato/prose/v2"
@@ -38,13 +38,14 @@ func (pc PlagiarismChecker) PrepareContent(content string) string {
 	}
 	data := []string{}
 	// Iterate over the doc's tokens:
+
 	for _, tok := range doc.Tokens() {
 		if !Contains(stopwords, tok.Text) {
+
 			stem := porterstemmer.StemString(tok.Text)
 			data = append(data, stem)
 		}
 	}
-
 	return strings.Join(data[:], "")
 }
 
@@ -77,22 +78,25 @@ func (pc PlagiarismChecker) GetFileContent(filename string) string {
 	if err != nil {
 		panic(err)
 	}
+
 	return string(data)
 }
 func (pc PlagiarismChecker) CalculatePlagiarismRate() float64 {
 
 	THA := len(pc.HashTable["a"])
 	THB := len(pc.HashTable["b"])
-	intercet := Intersect(pc.HashTable["a"], pc.HashTable["b"])
-	SH := reflect.ValueOf(intercet).Len()
+	intersect := Intersect(pc.HashTable["a"], pc.HashTable["b"])
+	SH := reflect.ValueOf(intersect).Len()
 
 	// Formular for plagiarism rate
-	// P = (2 * SH / THA * THB ) 100%
-	p := float64(2 * SH)/ float64(THA * THB)
-	return float64(p* 100)
+	// P = (2 * SH / THA + THB ) 100%
+	fmt.Println(SH, THA, THB)
+	p := float64(2*SH) / float64(THA+THB)
+	return float64(p * 100)
 }
 
 func main() {
+
 	_, b, _, _ := runtime.Caller(0)
 	//get root
 	Root := filepath.Join(filepath.Dir(b), "../")

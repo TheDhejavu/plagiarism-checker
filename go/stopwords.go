@@ -9,7 +9,7 @@ var stopwords = []string{
 	"most", "after", "further", "yourselves",
 	"if", "there", "haven", "wasn\"t", "t", "or", "at", "weren", "just", "hasn\"t", "couldn\"t", "those", "hadn\"t", "because", "i", "they", "our", "through", "above", "being", "hasn", "o", "isn", "each",
 	"on", "all", "themselves", "which", "any", "again", "needn\"t", "won\"t", "do", "you\"ve",
-	"theirs", "now", "it", "so", "in", "ve", "over", "didn", "own", "aren", "myself",
+	"theirs", "now", "doesn’t", "it", "so", "in", "ve", "over", "didn", "own", "aren", "myself",
 	"you\"ll", "s", "from", "have", "ours", "other", "wouldn", "very", "to", "don", "doesn", "an", "isn\"t",
 	"not", "doing", "under", "then", "between", "yours", "she\"s",
 	"mightn\"t", "don\"t", "for", "out", "couldn", "was", "why", "both", "should", "about", "his", "once",

@@ -23,6 +23,7 @@ class rolling_hash:
         if self.window_end <= len(self.text) - 1:
             self.hash -= (ord(self.text[self.window_start]) -
                           96)*self.base**(self.patternSize-1)
+
             self.hash *= self.base
             self.hash += ord(self.text[self.window_end]) - 96
             # print(  ord(self.text[self.window_end])- 96)
@@ -54,4 +55,4 @@ def checker(text, pattern):
 
 
 if __name__ == "__main__":
-    print(checker("ABDCCEAG", "ag"))
+    print(checker("ABDCCEAGmsslslsosspps", "agkalallaa"))
